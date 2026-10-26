@@ -1,8 +1,8 @@
 package org.serch;
 import java.util.Scanner;
 public class Menu {
-   static double promedio_total = 0;
-   static int conta_registro = 0;
+    static double promedio_total = 0;
+    static int conta_registro = 0;
     static int conta_apro = 0;
     static int conta_repro = 0;
     static Scanner scan = new Scanner(System.in);
@@ -16,19 +16,20 @@ public class Menu {
         System.out.println("Seleccione una opción:");
     }
     public static double registro(int i) {
-            System.out.println("Estudiante " + i);
-            System.out.println("Ingrese Nombre");
-            String nombre = scan.nextLine();
+        System.out.println("Estudiante " + i);
+        System.out.println("Ingrese Nombre");
+        String nombre = scan.nextLine();
+        scan.nextLine();
         System.out.println("Nombre:" + nombre);
-            System.out.println("Evaluacion 1:");
-            double ev1 = scan.nextDouble();
-            System.out.println("Evaluacion 2:");
-            double ev2 = scan.nextDouble();
-            System.out.println("Evaluacion 3:");
-            double ev3 = scan.nextDouble();
-            double promedio = (ev1+ev2+ev3)/3;
-            System.out.println("Promedio:" + promedio);
-            return promedio;
+        System.out.println("Evaluacion 1:");
+        double ev1 = scan.nextDouble();
+        System.out.println("Evaluacion 2:");
+        double ev2 = scan.nextDouble();
+        System.out.println("Evaluacion 3:");
+        double ev3 = scan.nextDouble();
+        double promedio = (ev1+ev2+ev3)/3;
+        System.out.println("Promedio:" + promedio);
+        return promedio;
     }
     public static void registro_menu() {
         System.out.println("=====================================");
@@ -48,6 +49,7 @@ public class Menu {
             }
             promedio_total = (promedio_total + promedio);
         }
+        scan.nextLine();
     }
     public static void main(String[] args) {
         int opcion = 0;
@@ -56,20 +58,22 @@ public class Menu {
             opcion = scan.nextInt();
             switch (opcion) {
                 case 1:
-                    while (opcion == 1) {
+                    int opciona = 1;
+                    while (opciona == 1) {
                         registro_menu();
                         System.out.println("Desea continuar? 1. SI 2. NO");
-                        opcion = scan.nextInt();
+                        opciona = scan.nextInt();
                     }
                     break;
                 case 2:
-                    while (opcion == 2) {
+                    int opcionb = 1;
+                    while (opcionb == 1) {
                         System.out.println("Estudiantes registrados:" + conta_registro);
                         System.out.println("Estudiantes aprobados:" + conta_apro);
                         System.out.println("Estudiantes reprobados:" + conta_repro);
                         System.out.println("Promedio total:" + promedio_total/conta_registro);
                         System.out.println("Desea continuar? 1. SI 2. NO");
-                        opcion = scan.nextInt();
+                        opcionb = scan.nextInt();
                     }
                     break;
                 case 3:
@@ -77,5 +81,6 @@ public class Menu {
                     break;
             }
         } while (opcion != 3);
+        scan.nextLine();
     }
 }
